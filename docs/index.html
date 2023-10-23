@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>resume.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E8%81%B7%E5%8B%99%E7%B5%8C%E6%AD%B4%E6%9B%B8">職務経歴書</h1>
+<h2 id="%E5%9F%BA%E6%9C%AC%E6%83%85%E5%A0%B1">基本情報</h2>
+<ul>
+<li>名前: 池澤勇輝</li>
+<li>生年月日: 1991年8月22日</li>
+<li>最終学歴: 中央大学大学院文学研究科（教育学修士）</li>
+</ul>
+<h2 id="%E3%83%90%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%92%E7%99%BA%E6%8F%AE%E3%81%97%E3%82%84%E3%81%99%E3%81%84%E6%A5%AD%E5%8B%99">バリューを発揮しやすい業務</h2>
+<ul>
+<li>Webアプリケーション開発。</li>
+<li>RPAツール開発。</li>
+</ul>
+<h2 id="%E3%82%B9%E3%82%AD%E3%83%AB">スキル</h2>
+<h3 id="%E8%A8%80%E8%AA%9E">言語</h3>
+<h4 id="%E4%B8%AD%E4%B8%8A%E7%B4%9A%E3%83%AC%E3%83%99%E3%83%AB">中～上級レベル</h4>
+<ul>
+<li>Python</li>
+<li>Ruby</li>
+<li>Go</li>
+<li>Javascript</li>
+<li>Typescript</li>
+</ul>
+<h4 id="%E5%88%9D%E7%B4%9A%E3%83%AC%E3%83%99%E3%83%AB">初級レベル</h4>
+<ul>
+<li>Java</li>
+<li>C#</li>
+<li>C/C++</li>
+<li>PHP</li>
+<li>Kotlin</li>
+</ul>
+<h3 id="%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AFmiddlewarehardware">フレームワーク、Middleware、Hardware</h3>
+<p>jQuery, Vue.js, React.js, nuxt.js, Flask, Ruby on rails, Gin, echo, spring boot, MySQL, Wordpress, Docker, Bootstrap, Tailwind CSS</p>
+<h3 id="%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89">クラウド</h3>
+<p>AWS （AWSLambda, ECS, EC2, APIGateway, SecretManager, S3, Fargate, Amazon Lightsail）, GCP（Cloud Function）, Azure（Azure Function）</p>
+<h3 id="%E3%81%9D%E3%81%AE%E4%BB%96">その他</h3>
+<p>Selenium, GAS, Github,</p>
+<h3 id="%E8%B3%87%E6%A0%BC">資格</h3>
+<ul>
+<li>応用情報技術者試験(2022年12月)</li>
+<li>Oracle Certified Java Programmer, Silver SE 8(2018年1月)</li>
+</ul>
+<h2 id="%E8%81%B7%E5%8B%99%E7%B5%8C%E6%AD%B4">職務経歴</h2>
+<h3 id="%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%B3%E3%83%81%E3%83%A5%E3%82%A2%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE202307---%E7%8F%BE%E5%9C%A8">アクセンチュア株式会社（2023/07 - 現在）</h3>
+<h4 id="202307---%E7%8F%BE%E5%9C%A8--api%E9%96%8B%E7%99%BA%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E9%96%8B%E7%99%BA%E3%81%AE%E3%82%B3%E3%83%B3%E3%82%B5%E3%83%AB%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E6%A5%AD%E5%8B%99">2023/07 - 現在 : API開発のディレクション、ブロックチェーン開発のコンサルティング業務</h4>
+<h4 id="%E8%81%B7%E5%8B%99%E5%86%85%E5%AE%B9">【職務内容】</h4>
+<ul>
+<li>資料作成</li>
+<li>プロジェクト管理。</li>
+</ul>
+<hr>
+<h3 id="gmo%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE202109---202306">GMOインターネットグループ株式会社（2021/09 - 2023/06）</h3>
+<h4 id="202109---202306-%E3%82%B9%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%B3%E3%82%A4%E3%83%B3%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AB%E3%81%8B%E3%81%8B%E3%82%8F%E3%82%8B%E6%A5%AD%E5%8B%99%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA">2021/09 - 2023/06: ステーブルコインサービスにかかわる業務アプリ開発</h4>
+<h4 id="%E8%81%B7%E5%8B%99%E5%86%85%E5%AE%B9">【職務内容】</h4>
+<p>GYEN 特命担当</p>
+<ul>
+<li>Web アプリケーションエンジニア(暗号資産サービス担当)
+<ul>
+<li>Ethereum、Stellar、Klaytnを用いたブロックチェーンアプリケーション開発。</li>
+<li>暗号資産サービスに関わる業務アプリケーション開発。</li>
+</ul>
+</li>
+<li>2021 年 11 月よりプロジェクトリーダーに就任</li>
+</ul>
+<h4 id="%E6%8B%85%E5%BD%93%E3%83%95%E3%82%A7%E3%83%BC%E3%82%BA">【担当フェーズ】</h4>
+<p>要件定義、基本設計、詳細設計、実装・結合/システムテスト</p>
+<hr>
+<h3 id="%E3%83%87%E3%82%A3%E3%83%83%E3%83%97%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE201903---202308">ディップ株式会社（2019/03 - 2023/08）</h3>
+<h4 id="201908---202108-%E4%BA%BA%E4%BA%8B%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E7%B5%84%E7%B9%94%E7%99%BA%E4%BB%A4%E3%81%AE%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%83%E3%83%81%E9%96%8B%E7%99%BA">2019/08 - 2021/08: 人事システム(組織、発令)のスクラッチ開発</h4>
+<h4 id="%E8%81%B7%E5%8B%99%E5%86%85%E5%AE%B9">【職務内容】</h4>
+<p>次世代事業統括部 dip robotics 課</p>
+<ul>
+<li>Webアプリケーションエンジニア
+<ul>
+<li>主にバックエンドを担当。</li>
+<li>使用する技術選定にも関わる。</li>
+</ul>
+</li>
+<li>外部の SaaS や他の自社システムとの連携バッチの開発、運用。</li>
+</ul>
+<h4 id="%E6%8B%85%E5%BD%93%E3%83%95%E3%82%A7%E3%83%BC%E3%82%BA">【担当フェーズ】</h4>
+<p>要件定義、基本設計、詳細設計、実装・結合/システムテスト</p>
+<h4 id="201903---202107-%E7%A4%BE%E5%86%85%E6%A5%AD%E5%8B%99%E3%81%AE-rpa-%E3%81%AE%E4%BC%81%E7%94%BB%E8%A8%AD%E8%A8%88%E5%AE%9F%E8%A3%85%E9%81%8B%E7%94%A8">2019/03 - 2021/07: 社内業務の RPA の企画、設計、実装、運用</h4>
+<h4 id="%E8%81%B7%E5%8B%99%E5%86%85%E5%AE%B9">【職務内容】</h4>
+<p>システム開発部業務推進課</p>
+<ul>
+<li>Webアプリケーションエンジニア</li>
+<li>GAS を使ったスプレッドシートによるメール送信自動化ツール
+の開発</li>
+<li>Lambda を使用した Slack 通知 bot の開発</li>
+<li>AWS、SQS を使用した自社システム間のデータ連携バッチの開発</li>
+</ul>
+<h4 id="%E6%8B%85%E5%BD%93%E3%83%95%E3%82%A7%E3%83%BC%E3%82%BA">【担当フェーズ】</h4>
+<p>要件定義、基本設計、詳細設計、実装・結合/システムテスト</p>
+<hr>
+<h3 id="%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BA201704---201902">株式会社ワークスアプリケーションズ（2017/04 - 2019/02）</h3>
+<h4 id="201807---201902-%E4%BA%BA%E4%BA%8B%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%B0%8E%E5%85%A5">2018/07 - 2019/02: 人事システムの導入</h4>
+<h4 id="%E8%81%B7%E5%8B%99%E5%86%85%E5%AE%B9">【職務内容】</h4>
+<p>HR BizDev</p>
+<ul>
+<li>導入コンサルタント
+<ul>
+<li>インターフェース設定担当。人事システムと他システムとの連
+携</li>
+</ul>
+</li>
+</ul>
+<h4 id="%E6%8B%85%E5%BD%93%E3%83%95%E3%82%A7%E3%83%BC%E3%82%BA">【担当フェーズ】</h4>
+<p>実装、テスト</p>
+<h4 id="201710---201806-%E4%BA%BA%E4%BA%8B%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E9%81%8B%E7%94%A8%E4%BF%9D%E5%AE%88">2017/10 - 2018/06: 人事システムの運用保守</h4>
+<h4 id="%E8%81%B7%E5%8B%99%E5%86%85%E5%AE%B9">【職務内容】</h4>
+<p>アプリケーションエンジニア</p>
+<ul>
+<li>組織サブシステムのバグ修正など</li>
+<li>帳票出力サブシステムの新規開発</li>
+</ul>
+<h4 id="%E6%8B%85%E5%BD%93%E3%83%95%E3%82%A7%E3%83%BC%E3%82%BA">【担当フェーズ】</h4>
+<p>実装、テスト</p>
+<h4 id="201704---201709-%E7%A4%BE%E5%86%85%E7%A0%94%E4%BF%AE">2017/04 - 2017/09: 社内研修</h4>
+<h4 id="%E8%81%B7%E5%8B%99%E5%86%85%E5%AE%B9">【職務内容】</h4>
+<p>研修</p>
+<ul>
+<li>HTML, CSS, Javascript, SQL の習得</li>
+<li>Web アプリケーションの開発</li>
+</ul>
+<h4 id="%E6%8B%85%E5%BD%93%E3%83%95%E3%82%A7%E3%83%BC%E3%82%BA">【担当フェーズ】</h4>
+<p>企画、設計、実装、テスト</p>
+<hr>
+<h2 id="%E8%A8%80%E8%AA%9E">言語</h2>
+<ul>
+<li>日本語
+<ul>
+<li>ネイティブ</li>
+</ul>
+</li>
+<li>英語
+<ul>
+<li>文章の読解ができる</li>
+<li>TOEIC: 520点</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%BC%B7%E3%81%BF%E3%83%BB%E5%BC%B1%E3%81%BF">強み・弱み</h2>
+<ul>
+<li>
+<p>0→1フェーズに自信あり。</p>
+<p>比較的小規模なプロジェクトにおいて、ユーザー側からの要望を聞いたあと、どのようなプロダクトがユーザーに価値を届けられるかを考え、それを形にするということに自信とやりがいを持っています。</p>
+</li>
+<li>
+<p>小規模開発のWebアプリケーションであれば、フロントエンド、バックエンド、インフラまで対応可能。</p>
+<p>小規模のWebアプリケーション開発の経験が多く、比較的なんでも行うことが多かったため、画面のデザインからAPIの開発、DBのテーブル作成、デプロイまでを行うことができます。</p>
+</li>
+<li>
+<p>プログラミングが大好き。</p>
+<p>何よりプログラミングをしている時間が一番好きで、実装に夢中になるあまり、ご飯を食べるのを忘れたり、風呂に入るのを忘れたり、寝るのが遅くなったりします。プログラミングの能力を高めたく、C言語を学習してみたり、「関数型言語が良い」と聞けばLispを学習したりします。</p>
+</li>
+<li>
+<p>個人戦タイプ</p>
+<p>一つの事に深く考える性質を持っていることから、昔から「あらゆることに即座に臨機応変に対応すること」が苦手です。接客業や営業、マネジメント業務などでその弱さが露見しやすく、かなり職人気質だと思います。</p>
+</li>
+</ul>
+<h2 id="%E4%BE%A1%E5%80%A4%E8%A6%B3">価値観</h2>
+<ul>
+<li>
+<p>課題の本質を見抜くこと</p>
+<p>お客さんの言うことが正解ではない、ということをメンターに教わりました。「レビットのドリルの穴理論（ドリルを買いにきた人が欲しいのはドリルではなく『穴』である）」は、実際にプロダクトを作る上で大切にしている視点です。「AWSを導入してほしい」という要望は、実は「RPAの開発」で解決できたことがあります。何が問題の本質かを外さないことは0→1フェーズで一番大切にしています。</p>
+</li>
+<li>
+<p>学ぶこと、学び続けること</p>
+<p>「インプット以上のアウトプットは出ない」と考えています。特に技術書の購読は意識的に行っており、そこで得た学びが業務でのアウトプットに直結すると思っています。エンジニアとして、技術力の向上には妥協しません。目標は「ハッカーを名乗れるレベルになること」です。</p>
+</li>
+</ul>
+<h2 id="%E8%88%88%E5%91%B3%E3%83%BB%E9%96%A2%E5%BF%83">興味・関心</h2>
+<ul>
+<li>Linuxカーネル</li>
+<li>k8s</li>
+<li>podman</li>
+<li>Rust</li>
+</ul>
+<h2 id="%E5%B0%86%E6%9D%A5%E3%81%A9%E3%81%86%E3%81%AA%E3%82%8A%E3%81%9F%E3%81%84%E3%81%8B">将来どうなりたいか</h2>
+<h3 id="10%E5%B9%B4%E5%BE%8C%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%9F%E3%81%84%E5%A7%BF">10年後になりたい姿</h3>
+<ul>
+<li>
+<p>ハッカーになる。</p>
+<p>技術を武器に、自分がいる方（会社、組織、チーム）を勝たせます。</p>
+</li>
+</ul>
+<h3 id="%E7%8F%BE%E5%9C%A8%E3%81%A8%E3%81%AA%E3%82%8A%E3%81%9F%E3%81%84%E5%A7%BF%E3%81%A8%E3%81%AE%E3%82%AE%E3%83%A3%E3%83%83%E3%83%97">現在となりたい姿とのギャップ</h3>
+<ul>
+<li>
+<p>技術面</p>
+<ul>
+<li>
+<p>インフラ領域</p>
+<p>デプロイやGithub Actionsを使ったCI/CDなど、簡単なことはできますが、まだまだ足りていない部分だと思っています。</p>
+</li>
+<li>
+<p>低レイヤーの知識</p>
+<p>Linuxカーネルの知識など、コンピュータの低レイヤーの知識がまだ未熟なのではないかと思っています。文系出身ということもあり、情報工学の知識が劣っているのではないかと感じています。</p>
+</li>
+<li>
+<p>プログラミング能力</p>
+<p>効率的なアルゴリズム、柔軟性があり保守しやすいコードなど。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>精神面</p>
+<p>不測の事態に陥っても冷静に判断できること、たとえ批判を浴びても自分を見失わないことなど、精神的に強くなりたいと思っています。</p>
+</li>
+</ul>
+<h3 id="%E3%81%AA%E3%82%8A%E3%81%9F%E3%81%84%E5%A7%BF%E3%82%92%E9%81%94%E6%88%90%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E5%8F%96%E3%82%8A%E7%B5%84%E3%81%BF%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8">なりたい姿を達成するために、取り組みたいこと</h3>
+<ul>
+<li>多くの開発業務経験を積むこと。</li>
+<li>OSの自作。</li>
+<li>技術書の購読。</li>
+</ul>
+
+</body>
+</html>
